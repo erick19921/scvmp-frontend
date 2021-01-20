@@ -22,6 +22,24 @@ const client = new ApolloClient({
   })
 });
 
+client
+  .query({
+    query: gql`
+      {
+        productos {
+          id
+          costo_compra_no_iva
+          cantidad_disponible
+          fecha_expiracion
+          descripcion {
+            nombre
+          }
+        }
+      }
+    `
+  })
+  .then((result) => console.log(result));
+
 const PRODUCTOS = gql`
   {
     productos {
