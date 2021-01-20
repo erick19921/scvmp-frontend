@@ -3,8 +3,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 //Other imports
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+  ApolloProvider
+} from "@apollo/client";
 import { useQuery, gql } from "@apollo/client";
 
 // Js imports
@@ -12,18 +16,22 @@ import App from "./App";
 
 //Apollo client creation
 const client = new ApolloClient({
-  uri: "http://localhost:3000/scvmp_api",
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: "http://localhost:3000/scvmp_api"
+  })
 });
 
 const PRODUCTOS = gql`
-  query productos {
-    id
-    costo_compra_no_iva
-    cantidad_disponible
-    fecha_expiracion
-    descripcion {
-      nombre
+  {
+    productos {
+      id
+      costo_compra_no_iva
+      cantidad_disponible
+      fecha_expiracion
+      descripcion {
+        nombre
+      }
     }
   }
 `;
@@ -34,14 +42,16 @@ function Productos() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return data.map(({ id, costo_compra_no_iva, cantidad_disponible }) => (
-    <div key={id}>
-      <p>
-        {costo_compra_no_iva}
-        {cantidad_disponible}
-      </p>
-    </div>
-  ));
+  return data.productos.map(
+    ({ id, costo_compra_no_iva, cantidad_disponible }) => (
+      <div key={id}>
+        <p>
+          {costo_compra_no_iva}
+          {cantidad_disponible}
+        </p>
+      </div>
+    )
+  );
 }
 
 function App2() {
