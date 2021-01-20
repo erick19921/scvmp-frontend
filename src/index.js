@@ -12,7 +12,7 @@ import {
 import { useQuery, gql } from "@apollo/client";
 
 // Js imports
-import App from "./App";
+//import App from "./App";
 
 //Apollo client creation
 const client = new ApolloClient({
@@ -42,32 +42,20 @@ function Productos() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return data.productos.map(
-    ({ id, costo_compra_no_iva, cantidad_disponible }) => (
-      <div key={id}>
-        <p>
-          {costo_compra_no_iva}
-          {cantidad_disponible}
-        </p>
-      </div>
-    )
-  );
-}
-
-function App2() {
   return (
-    <ApolloProvider client={client}>
-      <div>
-        <h2>My first Apollo app 🚀</h2>
-      </div>
-    </ApolloProvider>
+    <>
+      <h2>Productos</h2>
+      {data.productos.map((id, cantidad_disponible) => (
+        <p key={id}>{cantidad_disponible}</p>
+      ))}
+    </>
   );
 }
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <Productos />
-  </React.StrictMode>,
+  </ApolloProvider>,
   rootElement
 );
