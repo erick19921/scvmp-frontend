@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@apollo/client": "3.3.7",
     "apollo-client": "2.6.10",
     "graphql": "15.4.0",
     "primeicons": "4.1.0",
