@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+/*https://fonts.google.com/specimen/Oswald?sidebar.open=true&selection.family=Oswald:wght@300*/
+
+/* Valores generales para que la página se acomode al 100 por ciento del espacio disponible*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: 'Oswald', sans-serif;
+    vertical-align: baseline;
+}
+
+/* Valores para definir los tamaños de los titulos*/
+h1 {
+    font-size: xx-large;
+}
+
+h2 {
+    font-size: x-large;
+}
+
+h3 {
+    font-size: large;
+}
+
+h4 {
+    font-size: medium;
+}
+
+h5 {
+    font-size: small;
+}
+
+h6 {
+    font-size: smaller;
+}
+
+p {
+    font-size: large;
+}
+
+/* Definicion de los contenedores*/
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 0px;
+    padding: 0px;
+    top: 0;
+}
+
+.grid-container-2>div {
+    text-align: center;
+    padding: 0px;
+    padding-left: 0px;
+    font-size: 30px;
+    top: 0;
+}
+
+div.headBar {
+    background-color: #007375;
+    text-align: center;
+    border-style: groove;
+    border-left-width: 5px;
+    border-left-color: #7AF2F5;
+}
+
+/* Definicion de las imagenes*/
+img.grow {
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    float: left;
+    transition: width 2s;
+}
+
+img.grow:hover {
+    width: 300px;
+}
+
+img.mediumSize {
+    border-radius: 5%;
+    object-fit: contain;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    max-width: 50%;
+    max-height: 30%;
+}
+
+img.mediumSize:hover {
+    filter: blur(10px);
+}
+
+/* Menu de botones*/
+ul.menu {
+    text-align: right;
+}
+
+ul.menu>li {
+    list-style-type: none;
+    display: inline;
+    border-style: groove;
+    border-width: 5px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-color: #078C69;
+}
+
+ul.menu>li:hover {
+    background-color: #393c3dce;
+}
+
+/* Links de botones */
+ul.menu>li>a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000000;
+    width: 10%;
+    padding: 10px;
+}
+
+/* Imagenes en el fondo de la página*/
+body {
+    background-repeat: no-repeat;
+    background-image: url("../../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.divFooter {
+    text-align: center;
+    align-content: center;
+    background-color: #464343;
+    border-style: groove;
+    border-top-width: 5px;
+    border-top-color: #7AF2F5;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
+
+footer.noChange>a>i {
+    color: #5E3919;
+}
